@@ -361,40 +361,6 @@ void HashTable<K,V,Prober,Hash,KEqual>::insert(const ItemType& p)
     table_[loc]->item.second = p.second;
   }
 
-  /**
-  //count occupies slots
-  size_t occupied = 0;
-  for(size_t i = 0; i < table_.size(); i++){
-    if(table_[i] != nullptr){
-      occupied++;
-    }
-  }
-
-  //resize before inserting load factor is over limit
-  double load = 0.0;
-  if(CAPACITIES[mIndex_] > 0){
-    load = static_cast<double>(occupied) / static_cast<double>(CAPACITIES[mIndex_]);
-  }
-  if(load >= resizeAlpha_){
-    resize();
-  }
-  
-  //Find location: existing or nullptr
-  HASH_INDEX_T loc = probe(p.first);
-  if(loc == npos){
-    throw std::logic_error("No free location can be found");
-  }
-
-  if(table_[loc] == nullptr){
-    table_[loc] = new HashItem(p);
-    size_++;
-  }
-  else{
-    //probe
-    table_[loc]->item.second = p.second;
-  }
-**/
-
 }
 
 // To be completed
